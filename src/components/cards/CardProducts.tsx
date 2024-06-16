@@ -78,7 +78,7 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
 
             data.carts.push(newCart);
             const findUser = data.users.findIndex((find: User) => find.id === user!.id);
-            data.users[findUser] == addCartUser;
+            data.users[findUser] = addCartUser;
             await api.put("", data);
             setUser(addCartUser);
         } else {
