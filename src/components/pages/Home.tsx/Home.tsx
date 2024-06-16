@@ -39,7 +39,6 @@ const Home = () => {
             const response = await api.get("");
             const data = response.data.record.users;
             setUsers(data);
-            console.log(users);
         }
         useData();
     }, []);
