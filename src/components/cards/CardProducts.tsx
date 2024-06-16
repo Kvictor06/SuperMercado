@@ -54,7 +54,7 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
         }
 
         if (lessStock.stock === 0) {
-            data.products = data.products((delProduct: Product) => delProduct.id !== product.id);
+            data.products = data.products.filter((delProduct: Product) => delProduct.id !== product.id);
         } else {
             const findProduct = data.products.findIndex((find: Product) => find.id === product.id);
             data.products[findProduct] = lessStock;
