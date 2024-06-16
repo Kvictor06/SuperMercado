@@ -20,8 +20,10 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
             const local = localStorage.getItem("user");
             const use: User = JSON.parse(local!);
             if (use) {
-                const response = await api.get<User>(`/users/${use.id}`)
-                setUser(response.data);
+                const response = await api.get("");
+                const data = response.data.record;
+                const foundedUser = data.find((usee: User) => usee.id === use.id)
+                setUser(foundedUser);
             }
         }
         data();
