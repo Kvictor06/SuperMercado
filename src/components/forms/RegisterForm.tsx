@@ -27,6 +27,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ closeModal, update }) => {
         const response = await api.get('/');
         const data = await response.data.record;
         console.log(data);
+        console.log("fds")
         api.post('/users', user);
 
         closeModal();
