@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "id": "254523bd-5a89-4e8e-9721-423c4509030a",
+      "name": "teste",
+      "email": "a",
+      "password": "a",
+      "ordersIds": [],
+      "cartId": "78ac55f3-6e93-4a32-8f61-6308ca9844cf"
+    },
+    {
+      "id": "8a11e7a2-fe4c-4990-a58a-5cce4904e400",
+      "name": "aa",
+      "email": "a",
+      "password": "a",
+      "ordersIds": [
+        "66881c6b-cc8d-4385-bb60-ceb4d58d81e9"
+      ],
+      "cartId": "2d449576-ad2a-445e-931f-8b23d3cc1204"
+    }
+  ],
+  "carts": [
+    {
+      "id": "d75f8db3-348f-4685-bf46-5109567be150",
+      "userId": "e4ee2080-3433-4b7c-ae83-f6c3685f2cb2",
+      "products": [],
+      "totalAmount": 0
+    },
+    {
+      "id": "78ac55f3-6e93-4a32-8f61-6308ca9844cf",
+      "userId": "254523bd-5a89-4e8e-9721-423c4509030a",
+      "products": [
+        {
+          "id": "ef2e6ea1-6da5-4cd9-8953-e6b77f3095bb",
+          "name": "pao",
+          "description": "amanhecido",
+          "price": 1.5,
+          "stock": 1
+        }
+      ],
+      "totalAmount": 1.5
+    },
+    {
+      "id": "2d449576-ad2a-445e-931f-8b23d3cc1204",
+      "userId": "8a11e7a2-fe4c-4990-a58a-5cce4904e400",
+      "products": [],
+      "totalAmount": 0
+    }
+  ],
+  "products": [
+    {
+      "id": "e628e687-ac49-480f-98d4-d3266fbc66c1",
+      "name": "s",
+      "description": "s",
+      "price": 3,
+      "stock": 0
+    }
+  ],
+  "orders": [
+    {
+      "id": "f6cc8e91-285f-44d3-a513-a1797ca014ba",
+      "userId": "e4ee2080-3433-4b7c-ae83-f6c3685f2cb2",
+      "products": [
+        {
+          "id": "717edf92-82e3-45bd-baa6-c7e578c41632",
+          "name": "a",
+          "description": "a",
+          "price": 1,
+          "stock": 1
+        },
+        {
+          "id": "dc25d162-0280-4de5-9a9a-f6bed35960ed",
+          "name": "a",
+          "description": "a",
+          "price": 2,
+          "stock": 2
+        },
+        {
+          "id": "dc25d162-0280-4de5-9a9a-f6bed35960ed",
+          "name": "a",
+          "description": "a",
+          "price": 2,
+          "stock": 1
+        },
+        {
+          "id": "b3ae0aab-9b0a-4100-aa88-67d95671961f",
+          "name": "a",
+          "description": "a",
+          "price": 2,
+          "stock": 1
+        },
+        {
+          "id": "a7d742c7-331c-438e-8ed3-906fab76da9f",
+          "name": "a",
+          "description": "a",
+          "price": 1,
+          "stock": 1
+        }
+      ],
+      "totalAmount": 8
+    },
+    {
+      "id": "66881c6b-cc8d-4385-bb60-ceb4d58d81e9",
+      "userId": "8a11e7a2-fe4c-4990-a58a-5cce4904e400",
+      "products": [
+        {
+          "id": "50f9718e-4213-4e18-9905-8af5c5edd309",
+          "name": "a",
+          "description": "a",
+          "price": 1,
+          "stock": 1
+        }
+      ],
+      "totalAmount": 1
+    }
+  ]
+}
