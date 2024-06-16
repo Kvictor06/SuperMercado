@@ -13,7 +13,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ closeModal, update }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
 
         const user: User = {
             id: uuidv4(),
@@ -24,6 +24,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ closeModal, update }) => {
             cartId: ""
         }
 
+        const response = await api.get('/');
+        const data = await response.data.record;
+        console.log(data);
         api.post('/users', user);
 
         closeModal();
