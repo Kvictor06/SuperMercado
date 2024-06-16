@@ -72,6 +72,7 @@ const Home = () => {
         const data = responseApi.data.record.users;
         const foundedUser = data.find((use: User) => use.id === user.id)
         setUser(foundedUser)
+        console.log(foundedUser)
 
     }
 
