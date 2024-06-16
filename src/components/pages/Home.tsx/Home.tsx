@@ -27,7 +27,7 @@ const Home = () => {
 
     const deleteAcount = async () => {
         handleLogout();
-        await api.delete(`/users/${user!.id}`);
+        await api.delete(`/${user!.id}`);
         setUsers(users.filter(user => user.id !== user!.id));
     }
 
@@ -64,7 +64,7 @@ const Home = () => {
     }
 
     const selectUser = async (user: User) => {
-        const response = await api.get<User>(`/users/${user.id}`);
+        const response = await api.get<User>(`/${user.id}`);
         setUser(response.data);
     }
 

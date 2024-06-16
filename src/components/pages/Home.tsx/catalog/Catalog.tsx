@@ -25,7 +25,7 @@ const Catalog = () => {
             const storage = localStorage.getItem("user");
             const user : User = JSON.parse(storage!);
             if(user) {
-                const response = await api.get<User>(`/users/${user.id}`);
+                const response = await api.get<User>(`/${user.id}`);
                 setUser(response.data);
             }
         }
