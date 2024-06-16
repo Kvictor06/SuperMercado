@@ -42,7 +42,7 @@ const Catalog = () => {
             setProducts(cartFilter);
         }
         dataProducts();
-    }, [update])
+    }, [updateCont])
 
     useEffect(() => {
 
@@ -57,7 +57,7 @@ const Catalog = () => {
             }
         }
         dataCart();
-    }, [update])
+    }, [updateCont])
 
 
     const openCart = () => {
