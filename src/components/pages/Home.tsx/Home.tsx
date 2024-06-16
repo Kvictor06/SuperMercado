@@ -37,8 +37,8 @@ const Home = () => {
     useEffect(() => {
         const useData = async () => {
             const response = await api.get("/");
-            const data = response.data.record;
-            setUsers(data.users);
+            const data = response.data.record.users;
+            setUsers(data);
         }
         useData();
     }, [updateCont]);
