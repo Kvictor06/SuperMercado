@@ -13,9 +13,8 @@ const Home = () => {
     const [localUser, setLocalUser] = useState<User | null>()
     const [showModal, setShowModal] = useState(false);
     const [update, setUpdate] = useState(0);
-    console.log(update);
-
-
+    
+    
     const updateCont = () => {
         setUpdate(prevUpdate => prevUpdate + 1);
     }
@@ -42,7 +41,7 @@ const Home = () => {
             console.log(users);
         }
         useData();
-    }, [updateCont]);
+    }, [update]);
 
 
     useEffect(() => {
@@ -69,9 +68,10 @@ const Home = () => {
     }
 
     const selectUser = async (user: User) => {
-        const responseApi = await api.get('/');
-        const data = responseApi.data.record;
-        setUser(data.users.filter((use: User) => use.id === user.id))
+        const responseApi = await api.get('');
+        const data = responseApi.data.record.users;
+        const foundedUser = data.find((use: User) => use.id === user.id)
+        setUser(foundedUser)
 
     }
 
