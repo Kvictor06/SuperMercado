@@ -22,7 +22,7 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
             if (use) {
                 const response = await api.get("");
                 const data = response.data.record;
-                const foundedUser = data.find((usee: User) => usee.id === use.id)
+                const foundedUser = data.users.find((usee: User) => usee.id === use.id)
                 setUser(foundedUser);
             }
         }
