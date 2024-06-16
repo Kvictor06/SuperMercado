@@ -35,7 +35,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ closeModal, update }) => {
   return (
     <div className="form-group">
       <label htmlFor="name" className="text-secondary">
-        Nome:{" "}
+        NomeA:{" "}
       </label>
       <input
         type="text"
