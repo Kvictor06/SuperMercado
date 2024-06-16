@@ -22,7 +22,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ closeModal, update }) => {
       cartId: "",
     };
 
-    const response = await api.get("/");
+    const response = await api.get("");
     const data = response.data.record;
     data.users.push(user);
 
