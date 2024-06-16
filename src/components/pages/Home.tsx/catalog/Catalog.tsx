@@ -13,6 +13,7 @@ const Catalog = () => {
     const [showCart, setShowCart] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
     const [updateCont, setUpdateCont] = useState(0);
+    console.log(updateCont);
 
     const update = () => {
         setUpdateCont(prevCount => prevCount + 1);

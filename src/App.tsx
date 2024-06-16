@@ -5,6 +5,7 @@ import './App.css'
 import { Outlet } from 'react-router-dom'
 import Header from './components/header/Header'
 
+console.log(useState, reactLogo, viteLogo)
 function App() {
 
 

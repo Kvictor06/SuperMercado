@@ -13,6 +13,7 @@ const Home = () => {
     const [localUser, setLocalUser] = useState<User | null>()
     const [showModal, setShowModal] = useState(false);
     const [update, setUpdate] = useState(0);
+    console.log(update);
 
 
     const updateCont = () => {
