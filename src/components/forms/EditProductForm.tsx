@@ -30,6 +30,8 @@ const EditProductForm: React.FC<EditProductFormProps> = ({ product, closeModal, 
             stock: stock
         }
 
+        
+
         await api.put(`/products/${product.id}`, newProduct);
         update();
     }
