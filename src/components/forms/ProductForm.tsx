@@ -24,7 +24,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ closeModal, update }) => {
             stock: stock
         }
         
-        const response = await api.get('');
+        const response = await api.get("");
         const data = response.data.record.products;
         data.push(newProduct);
         await api.put('/', data);

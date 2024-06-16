@@ -36,7 +36,7 @@ const Catalog = () => {
 
     useEffect(() => {
         const dataProducts = async () => {
-            const response = await api.get('');
+            const response = await api.get("");
             const data = response.data.record.products;
             const cartFilter = data.filter((product: Product) => product.stock > 0);
             setProducts(cartFilter);
@@ -48,7 +48,7 @@ const Catalog = () => {
 
         const dataCart = async () => {
             if(user?.cartId) {
-                const response = await api.get('');
+                const response = await api.get("");
                 const data = response.data.record.carts;
                 const foundedCart = data.find((cart: Cart) => cart.id === user.cartId);
                 if (response) {
