@@ -31,7 +31,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ closeModal, update }) => {
     return (
 
         <div className="form-group">
-            <label htmlFor="name" className="text-secondary">Nome: </label>
+            <label htmlFor="name" className="text-secondary">NomeA: </label>
             <input type="text" className="form-control" id="name" placeholder="Coloque seu nome" value={name} onChange={e => setName(e.target.value)} />
             <label htmlFor="description" className="text-secondary">Descrição:</label>
             <input type="text" className="form-control" id="description" placeholder="Ex: Pão amanhecido" value={description} onChange={e => setDescription(e.target.value)} />
