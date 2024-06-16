@@ -27,18 +27,19 @@ const Home = () => {
 
     const deleteAcount = async () => {
         handleLogout();
-        const response = await api.get("/");
+        const response = await api.get("");
         const data = response.data.record;
         data.users = data.users.filter((use: User) => use.id !== user!.id);
-        await api.put('/', data);
+        await api.put('', data);
         setUsers(users.filter(user => user.id !== user!.id));
     }
 
     useEffect(() => {
         const useData = async () => {
-            const response = await api.get("/");
+            const response = await api.get("");
             const data = response.data.record.users;
             setUsers(data);
+            console.log(users);
         }
         useData();
     }, [updateCont]);
