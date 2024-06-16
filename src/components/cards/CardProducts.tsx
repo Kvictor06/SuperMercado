@@ -70,6 +70,7 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
                 products: [product],
                 totalAmount: product.price
             }
+            console.log(newCart.id);
 
             const addCartUser: User = {
                 ...user!,
