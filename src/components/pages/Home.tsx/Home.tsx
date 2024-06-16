@@ -17,6 +17,7 @@ const Home = () => {
     
     const updateCont = () => {
         setUpdate(prevUpdate => prevUpdate + 1);
+        console.log(update)
     }
 
     const handleLogout = () => {
@@ -41,7 +42,7 @@ const Home = () => {
             console.log(users);
         }
         useData();
-    }, [update]);
+    }, []);
 
 
     useEffect(() => {
