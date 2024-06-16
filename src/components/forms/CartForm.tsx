@@ -17,8 +17,10 @@ const CartForm: React.FC<CartFormProps> = ({ closeCart }) => {
             const local = localStorage.getItem("user");
             const localUser : User = JSON.parse(local!);
             if(localUser) {
-                const response = await api.get<User>(`/users/${localUser.id}`);
-                setUser(response.data);
+                const response = await api.get("");
+                const data = response.data.record;
+                const foundedUser = data.users.find((find: User) => find.id === localUser.id)
+                setUser(foundedUser);
             }
         }
         data();
@@ -27,18 +29,22 @@ const CartForm: React.FC<CartFormProps> = ({ closeCart }) => {
     useEffect(() => {
         if(user) {
             const data = async () => {
-                const dataCart = await api.get<Cart>(`/carts/${user!.cartId}`);
-                setCart(dataCart.data);
+                const response = await api.get("");
+                const data = response.data.record;
+                const foundedCart = data.carts.find((find: Cart) => find.id === user!.cartId);
+                setCart(foundedCart);
             }
             data();
         }
     }, [user])
 
     const handleCart = async () => {
-        console.log(user?.id)
+
+        const response = await api.get("");
+        const data = response.data.record;
+
         const newOrder : Order = {
             id: uuidv4(),
-            
             userId: user!.id,
             products: cart!.products,
             totalAmount: cart!.totalAmount,
@@ -55,9 +61,13 @@ const CartForm: React.FC<CartFormProps> = ({ closeCart }) => {
             ordersIds: [...user!.ordersIds, newOrder.id]
         }
 
-        await api.post(`/orders`, newOrder);
-        await api.put(`/carts/${cart!.id}`, resetCart);
-        await api.put(`/users/${user?.id}`,  addOrder);
+        data.orders.push(newOrder);
+        const findCart = data.carts.findIndex((find: Cart) => find.id === cart!.id);
+        data.carts[findCart] = resetCart;
+        const findUser = data.users.findIndex((find: User) => find.id === user!.id);
+        data.users[findUser] = addOrder;
+        
+        await api.put("", data);
         closeCart();
 
     }
