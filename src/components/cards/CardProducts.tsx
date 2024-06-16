@@ -45,13 +45,19 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
 
     const selectProduct = async () => {
 
+        const response = await api.get("");
+        const data = response.data.record;
+
         const lessStock: Product = {
             ...product,
             stock: product.stock - 1
         }
 
         if (lessStock.stock === 0) {
-            await api.delete(`/products/${product.id}`);
+            data.products = data.products((delProduct: Product) => delProduct.id !== product.id);
+        } else {
+            const findProduct = data.products.findIndex((find: Product) => find.id === product.id);
+            data.products[findProduct] = lessStock;
         }
 
         if (user!.cartId === "") {
@@ -68,23 +74,25 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
                 cartId: newCart.id
             }
 
-            await api.post(`/carts`, newCart);
-            await api.put(`/users/${user!.id}`, addCartUser);
+            data.carts.push(newCart);
+            const findUser = data.users.findIndex((find: User) => find.id === user!.id);
+            data.users[findUser] == addCartUser;
+            await api.put("", data);
             setUser(addCartUser);
-
         } else {
-            const response = await api.get<Cart>(`/carts/${user!.cartId}`);
+            const findCart = data.carts.findIndex((find: Cart) => find.id === user!.cartId);
+            const thisCart = data.carts[findCart];
 
             const addProduct: Cart = {
-                ...response.data,
-                products: [...response.data.products, product],
-                totalAmount: response.data.totalAmount + product.price
-            }
+                ...thisCart,
+                products: [...thisCart.products, product],
+                totalAmount: thisCart.totalAmount + product.price
+            };
 
-            await api.put(`/carts/${response.data.id}`, addProduct);
-            await api.put(`/products/${product.id}`, lessStock);
+            data.carts[findCart] = addProduct
 
         }
+        await api.put("", data);
         update();
 
     }
