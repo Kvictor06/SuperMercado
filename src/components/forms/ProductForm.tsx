@@ -23,7 +23,11 @@ const ProductForm: React.FC<ProductFormProps> = ({ closeModal, update }) => {
             price: price,
             stock: stock
         }
-        await api.post('/products', newProduct);
+        
+        const response = await api.get('');
+        const data = response.data.record.products;
+        data.push(newProduct);
+        await api.put('/', data);
         closeModal();
         update();
     }

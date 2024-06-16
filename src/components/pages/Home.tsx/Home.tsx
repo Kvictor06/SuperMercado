@@ -41,7 +41,7 @@ const Home = () => {
             setUsers(data);
         }
         useData();
-    }, []);
+    }, [update]);
 
 
     useEffect(() => {

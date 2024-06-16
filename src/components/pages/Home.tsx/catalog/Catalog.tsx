@@ -25,8 +25,10 @@ const Catalog = () => {
             const storage = localStorage.getItem("user");
             const user : User = JSON.parse(storage!);
             if(user) {
-                const response = await api.get<User>(`/${user.id}`);
-                setUser(response.data);
+                const response = await api.get("");
+                const data = response.data.record.users;
+                const foundedUser = data.find((use: User) => use.id === user.id)
+                setUser(foundedUser);
             }
         }
         dataUser();
@@ -34,8 +36,9 @@ const Catalog = () => {
 
     useEffect(() => {
         const dataProducts = async () => {
-            const response = await api.get<Product[]>('/products');
-            const cartFilter = response.data.filter(products => products.stock > 0)
+            const response = await api.get('');
+            const data = response.data.record.products;
+            const cartFilter = data.filter((product: Product) => product.stock > 0);
             setProducts(cartFilter);
         }
         dataProducts();
@@ -45,9 +48,11 @@ const Catalog = () => {
 
         const dataCart = async () => {
             if(user?.cartId) {
-                const response = await api.get<Cart>(`/carts/${user!.cartId}`)
+                const response = await api.get('');
+                const data = response.data.record.carts;
+                const foundedCart = data.find((cart: Cart) => cart.id === user.cartId);
                 if (response) {
-                    setCart(response.data)
+                    setCart(foundedCart);
                 }
             }
         }
