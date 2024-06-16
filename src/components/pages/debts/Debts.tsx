@@ -12,7 +12,7 @@ const Debts = () => {
             const local = localStorage.getItem("user");
             const user: User = JSON.parse(local!);
             const response = await api.get("");
-            const data = response.data.orders;
+            const data = response.data.record;
             const findOrder = data.orders.find((find: Order) => find.userId === user.id);
             
             setDebts(findOrder)
