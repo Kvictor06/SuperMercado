@@ -36,7 +36,10 @@ const CardProducts: React.FC<CardProductsProps> = ({ product, update }) => {
     }
 
     const deleteCard = async () => {
-        await api.delete(`/products/${product.id}`);
+        const response = await api.get("");
+        const data = response.data.record;
+        data.products = data.products.filter((produc: Product) => produc.id !== product.id);
+        await api.put('', data);
         update();
     }
 
