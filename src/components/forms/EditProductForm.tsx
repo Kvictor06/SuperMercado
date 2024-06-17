@@ -30,9 +30,11 @@ const EditProductForm: React.FC<EditProductFormProps> = ({ product, closeModal, 
             stock: stock
         }
 
-        
-
-        await api.put(`/products/${product.id}`, newProduct);
+        const response = await api.get("");
+        const data = response.data.record;
+        const findProduct = data.products.findIndex((find: Product) => find.id === product.id);
+        data.products[findProduct] = newProduct;
+        await api.put("", data);
         update();
     }
 
