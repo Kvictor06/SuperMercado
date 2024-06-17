@@ -13,7 +13,7 @@ const Debts = () => {
             const user: User = JSON.parse(local!);
             const response = await api.get("");
             const data = response.data.record;
-            const findOrder = data.orders.find((find: Order) => find.userId === user.id);
+            const findOrder = data.orders.filter((find: Order) => find.userId === user.id);
             
             setDebts(findOrder)
         }
